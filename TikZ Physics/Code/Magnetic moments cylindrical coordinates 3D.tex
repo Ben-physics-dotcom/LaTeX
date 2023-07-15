@@ -1,0 +1,68 @@
+\documentclass{standalone}
+
+\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{color}
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{physics}
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{tikz}
+\usepackage{amsthm}
+
+% tikz libraries
+\usetikzlibrary{arrows}
+\usetikzlibrary{3d}
+\usetikzlibrary{angles, quotes, shapes, decorations.markings, calc, arrows.meta}
+
+% mathmatical commands
+\newcommand{\AAA}{\mathbf{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\I}{\infty}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+
+\begin{document}
+
+			\begin{tikzpicture}[>=stealth]
+				\filldraw[draw=white,fill=white] (-1.9,-3) rectangle (3.25,1.9); % delete this line, if you use the grafic
+				% coordinate system
+				\draw[->,very thick] (-2,0) -- (2,0);
+				\draw[->,very thick] (0,-2) -- (0,2);
+				\draw[->,very thick] (0,0,-2) -- (0,0,2);
+				
+				% m1
+				\filldraw[fill=blue,draw=blue] (0,0) circle (.05);
+				\begin{scope}[canvas is xz plane at y=0.05]
+					\draw[color=blue,<-] ({0.5*cos(30)},{0.5*sin(30)}) arc (30:350:.5);
+				\end{scope}
+				\draw[very thick] (0,.1) -- (0,1);
+				
+				% m2
+				
+				\begin{scope}[rotate around x=30]
+					\filldraw[fill=blue,draw=blue] (1.5,1.5) circle (0.05);
+					\draw[color=blue,->] ({0.5*cos(30)+1.5},{0.5*sin(30)+1.5}) arc (30:350:.5);
+				\end{scope}
+				
+				% Winkel phi:
+				\begin{scope}[canvas is xz plane at y=0.05]
+					\draw[<-] ({cos(100)},{sin(100)}) arc (100:160:1);
+				\end{scope}
+				
+				% text:
+				\node[scale=.7,below left] at ({cos(120)},0,{sin(120)}) {$\vp$};
+				\node[scale=.7,left] at (0,0,2) {r};
+				\node[scale=.7,above] at (0,2) {z};
+				\node[scale=.7,above 
+				left,color=blue] at (0,0.05) {$ m_1 $};
+				\node[scale=.7,below,color=blue] at (1.5,1.5) {$ m_2 $};
+		\end{tikzpicture}
+	
+\end{document}
