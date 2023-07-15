@@ -1,0 +1,148 @@
+\documentclass[bibliography=totocnumbered]{scrartcl}
+
+\usepackage{imakeidx}
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+
+\usepackage{wasysym}
+%\usepackage{SI}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{titling}% Titel
+\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+\usepackage[printonlyused]{acronym}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{listings}
+\usepackage{abstract}
+\usepackage[per-mode = fraction]{siunitx}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor=lime!50!black,
+	filecolor=red
+}
+%\addbibresource{} %Bibliography files uploading
+\addbibresource{Bibliography.bib}
+
+\geometry{a4paper, left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\date{\today}
+\lhead{\thedate}
+\rhead{Subject}
+\pagestyle{fancy}
+\lfoot{Univerity}
+
+% Neue Befehle
+\newcommand{\R}{\mathbb{R}} % reelle Zahlen
+\newcommand{\N}{\mathbb{N}} % natürliche Zahlen
+\newcommand{\C}{\mathbb{C}} % komplexe Zahlen
+\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
+\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
+\newcommand{\F}{\mathbf{F}} % Kraft
+\newcommand{\E}{\mathbf{E}} % Energie
+\newcommand{\V}{\mathbf{v}} % Geschwindigkeit
+\newcommand{\B}{\mathbf{B}} % magnetischer Fluss
+\newcommand{\J}{\mathbf{j}} % Stromdichte ?
+\newcommand{\D}{\mathbf{D}} % elektrische Induktion
+\newcommand{\HH}{\mathbf{H}} % magnetische Feldstärke
+\newcommand{\M}{\mathbf{M}} % Magnetisierung
+\newcommand{\p}{\mathbf{P}}
+\newcommand{\rr}{\mathbf{r}}
+\newcommand{\vp}{\varphi}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vcc}[1]{\left(\begin{matrix}#1\end{matrix}  \right)}
+\newcommand{\m}[1]{\left\lbrace #1\right\rbrace}
+\newcommand{\rang}[2]{\text{Rang}(#1)=#2}
+\newcommand{\vpe}{\frac{1}{4\pi\ve_0}}
+\newcommand{\qvpe}{\frac{q}{4\pi\ve_0}}
+\usetikzlibrary{patterns}
+\usetikzlibrary{3d}
+\begin{document}
+	
+	\section*{Subject}
+	University, Semester
+	\subsection*{Exercise and person overview}
+	exercise sheet:  \\\\
+	\large\textbf{Names and Registration numbers:}
+	
+	\renewcommand{\arraystretch}{1.5}
+	
+	\hspace{-5mm}
+	\begin{table}[ht!]
+		\begin{tabular}{|l|l|c|}
+			\hline
+			&  Name & Registration number\\   
+			\hline 
+			1. Person &  &  \\
+			\hline
+			2. Person &  &  \\
+			\hline
+			3. Person &  &  \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	\tableofcontents
+	\listoffigures
+	
+	\addsec{Acronyms}
+	\label{sec:abkuerzungsverzeichnis}
+	
+	\begin{acronym}[e. val.]
+		\acro{i.e.}{in example}
+		\acro{z.B.}{zum Beispiel}
+		\acro{konst.}{konstant}
+		\acro{const.}{constant}
+		\acro{e. vec.}{eigen vector}
+		\acro{e. val.}{eigen value}
+		\acro{bzw.}{beziehungsweise}
+		\acro{d.h.}{dass heißt}
+		\acro{Abb.}{Abbildung}
+		\acro{fig.}{figure}
+		\acro{z.z.}{zu zeigen}
+	\end{acronym}
+	\newpage
+	\section{Exercise 1}
+	
+	\section{Exercise 2}
+	
+	\section{Exercise 3}
+	
+	
+	\newpage
+	\appendix
+	\printbibliography[title=Sources]
+	
+	
+\end{document}
