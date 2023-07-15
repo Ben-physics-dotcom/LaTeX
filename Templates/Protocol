@@ -1,0 +1,140 @@
+\documentclass[bibliography=totocnumbered]{scrartcl}
+%
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+\usepackage{wasysym}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{titling}% Titel
+\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+\usepackage[printonlyused]{acronym}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{abstract}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+
+
+
+\addbibresource{bibligraphy.bib} %Bibliographiedateien laden
+
+
+
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\title{Title}
+\author{Author}
+\date{\today}
+
+\pagestyle{fancy}
+\lfoot{University}
+%\rfoot{O}
+
+
+
+\begin{document}
+	\pagenumbering{Roman}
+	\newgeometry{left=14mm, right=13.5mm, top=20mm, bottom=30mm}
+	\begin{titlepage}
+		\begin{center}
+			{\huge{Internship}}\\\vspace*{10mm}
+			{\huge{\textbf{\thetitle}}}\\\vspace*{15mm}
+			{\theauthor}\\\vspace*{10mm}
+			{\thedate}\\\vspace*{10mm}
+			\begin{tabular}{ll}
+				\textbf{Student:} &  \\
+				& e-mail-adress\\ 
+				\textbf{Partner:} &  \\
+				& e-mail-adress\\ 
+				\textbf{supervisor:} &  \\
+				& e-mail-adress\\
+				\textbf{Room:} &  \\ 
+				\textbf{measuring station:} &  \\
+			\end{tabular}
+			\vspace*{10mm}
+			\begin{abstract}
+				lkdjf la
+			\end{abstract}
+		\end{center}
+	\end{titlepage}
+	\makeatother
+	\restoregeometry
+	\newpage
+	
+	\tableofcontents
+	\listoffigures 
+	\listoftables
+	
+	
+	\addsec{Abkürzungsverzeichnis}
+	\label{sec:abkuerzungsverzeichnis}
+	
+	\begin{acronym}[charak. Poly.]
+		% Ana III
+		\acro{DGL}{Differentialgleichung}
+		\acro{AWP}{Anfangswertproblem}
+		\acro{EW}{Eigenwert}
+		\acro{EV}{Eigenvektor}
+		\acro{Viel.}{Vielfachheit}
+		\acro{geom.}{geometrisch}
+		\acro{alg.}{algebraisch}
+		\acro{dim}{Dimension}
+		\acro{Fund.s.}{Fundamentalsystem}
+		\acro{part.}{partikuläre}
+		\acro{charak. Poly.}{charakteristisches Polynom}
+		% allgemein
+		\acro{geg:}{gegeben}
+		\acro{konst.}{konstant}
+		\acro{z.Z.}{zu Zeigen}
+		\acro{z.B.}{zum Beispiel}
+		\acro{bzw.}{beziehungsweise}
+		\acro{allg.}{allgemein}
+		% Optik
+		\acro{EM-Welle}{elektromagnetische Welle}
+		% Gpr
+		\acro{True RMS}{Effektivmesser}
+		\acro{bzgl.}{bezüglich}
+	\end{acronym}
+	\newpage
+	\section{Theory and Implementation}
+	\pagenumbering{arabic}
+	
+	\newpage
+	\section{Error calculation and Measurement uncertainties}
+	
+	
+	\newpage
+	\section{Discussion}
+	
+	
+	
+	\newpage
+	
+	\appendix
+	\printbibliography[title={Sources}]
+	\section{Appendix}
+	\pagenumbering{Alph}
+	
+	
+	
+\end{document}
