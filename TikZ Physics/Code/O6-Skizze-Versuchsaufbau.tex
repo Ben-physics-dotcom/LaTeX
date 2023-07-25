@@ -1,0 +1,192 @@
+\documentclass{standalone}
+
+\usepackage{imakeidx}
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+%\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{color}
+\usepackage{wasysym}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{physics}
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{titling}% Titel
+%\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+%\usepackage[printonlyused]{acronym}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{amsthm}
+%\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage{abstract}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+%\makeindex[title=Stichwortverzeichnis,options=-s Index-Formatierung.ist,intoc]
+%\addbibresource{Blog-und-Kurse.bib}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{3d}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+
+% tikz library
+\usetikzlibrary{angles, quotes, shapes, decorations.markings, calc, arrows.meta}
+
+
+
+
+\newcommand{\AAA}{\mathbf{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\sq}{^{2}}
+\newcommand{\I}{\infty}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+
+\begin{document}
+		
+		\begin{tikzpicture}[>=stealth]
+			\draw[color=white] (0,0) rectangle (1,-4);
+			\filldraw[fill=gray!30!white,draw=black] (-2,.5) -- (-2,1) -- (2,1) -- (2,.5);
+			\filldraw[fill=gray!30!white,draw=black] (2,.5)  arc (290:250:5.85);
+			
+			\draw[<->] (0,2.5) -- ({cos(300)*3},{sin(300)*2.5+2.5});
+			\draw[<->] ({cos(300)*3},{sin(300)*2.5+2.5}) -- (0,.3);
+			
+			\shade[fill=gray!30!white] (-2,0) rectangle (2,-1);
+			\draw (-2,0) -- (2,0);
+			\draw[<->] ({cos(300)*3},{sin(300)*2.5+2.5}) -- ({cos(300)*3},0);
+			\draw[dashed,thin] (0,3) -- (0,-1);
+			
+			% Beschriftung
+			\node[scale=.7,above right] at (1.,1.25) {R\label{Bes: R}};
+			\node[scale=.7,above] at (.7,.3) {r\label{Bes: r}};
+			\node[scale=.7,above right] at (1.5,0) {d\label{Bes: a) d}};
+		\end{tikzpicture}
+		
+		\hspace*{3cm}
+		
+		\begin{tikzpicture}[>=stealth]
+			\draw[color=white] (0,0) rectangle (1,-4);
+			\filldraw[fill=gray!30!white,draw=black] (-2,-0.5) rectangle (2,-1.5);
+			\filldraw[fill=gray!30!white,draw=black] (-2,0.5) -- (2,1.5) -- (2,2) -- (-2,2) -- cycle;
+			\draw[->] (0,2.5) -- (0,1.5);
+			\draw[->] (0,1.5) -- (-0.15,.25);
+			\draw (-0.15,.25) -- (-.3,-0.5) -- (-.45,.15);
+			\draw[>-] (-.45,.15) -- (-.6,.85) -- (-.75,1.325);
+			\draw[>-] (-.75,1.325) -- (-.9,1.8);
+			\draw (-.06,.975) -- (-.65,1.25);
+			\draw[>-] (-.65,1.25) -- (-1.3,1.5);
+			\draw[dashed,very thin] ({cos(120)*.5-.06},{.975+sin(120)*.5}) -- ({cos(300)*.5-.06},{.975+sin(300)*.5});
+			\draw[dashed,very thin] ({cos(120)*.5-.6},{.85+sin(120)*.5}) -- ({cos(300)*.5-.6},{.85+sin(300)*.5});
+			\draw[dashed,very thin] (-.3,-.7) -- (-.3,.8);
+			\draw (-.06,.975) -- ({cos(0)*1-.06},{.975+sin(0)*1});
+			\draw[<->] (.8,-.5) -- (.8,.975);
+			
+			% Beschriftung
+			\node[scale=.7,above right] at (0,2) {1,2\label{Bes: Eingang}};
+			\node[scale=.7] at (-1.5,1.5) {1\label{Bes: erste brechung}};
+			\node[scale=.7,above right] at (-.9,1.5) {2\label{Bes: zweite brechung}};
+			\node[scale=.7] at (0,0) {2};
+			\node[scale=.7,left] at (-.5,0) {2};
+			\node[scale=.7] at (-.9,1.2) {A\label{Bes: A}};
+			\node[scale=.7] at (1,.25) {d\label{Bes: b) d}};
+			\node[scale=.7] at (0,-1) {Glasplatte\label{Bes: Glasplatte}};
+			\node[scale=.7] at (1.5,1.75) {Linse\label{Bes: Linse}};
+		\end{tikzpicture}
+
+		\hspace*{3cm}
+		
+		\begin{tikzpicture}[>=stealth]
+			\draw[color=white] (0,0) rectangle (6,-4);
+			% Würfel
+			\filldraw[fill=yellow,draw=yellow] (4,.05) rectangle (4.3,-.05);
+			\filldraw[fill=white,draw=black] (4.3,.4) rectangle (4.8, -1.6);
+			\node[scale=.7] at (4.55,-.6) {L\label{Lampe}};
+			\filldraw[fill=white,draw=black] (-4.8,1.6) rectangle (-2,2);
+			\filldraw[fill=white,draw=black] (-4.3,1) rectangle (-3.7,2.2);
+			\node[scale=.7] at (-4,1.6) {M\label{Mikroskop}};
+			\filldraw[fill=white,draw=black] (-2,1.4) rectangle (-1.6,2.2);
+			\node[scale=.7,above] at (-1.8,2.2) {Ms\label{Messschraube}};
+			
+			% Skalen
+			\foreach \t in {0,.3,...,1.5}
+			\draw ({-3.5+\t},2) -- ({-3.5+\t},1.8);
+			\foreach \t in {0,.3,...,1.5}
+			\draw ({-3.35+\t},2) -- ({-3.35+\t},1.9);
+			\foreach \t in {0,.03,...,1.35}
+			\draw ({-3.5+\t},2) -- ({-3.5+\t},1.95);
+			
+			\foreach \t in {0,.15,...,0.6}
+			\draw (-2,{1.5+\t}) -- (-1.8,{1.5+\t});
+			\foreach \t in {0,.15,...,0.8}
+			\draw (-2,{1.425+\t}) -- (-1.9,{1.425+\t});
+			
+			% Lampe
+			\draw ({cos(270)*.3-4},{sin(270)*.3+2.5}) -- ({cos(150)*.3-4},{sin(150)*.3+2.5}) -- ({cos(30)*.3-4},{sin(30)*.3+2.5}) -- cycle;
+			\filldraw[fill=orange!70!white,draw=black] (-4,3) circle (.5);
+			\filldraw[fill=orange!50!red,draw=orange!50!red] (-4,3) circle (.01);
+			\foreach \r in {.05,0.09,...,.46}
+			\draw[color=orange!50!red] (-4,3) circle (\r);
+			\foreach \r in {.05,0.09,...,.46}
+			\draw[color=red,very thin] (-4,3) circle (\r);
+			
+			%striche
+			\draw[red] (-4,0) -- (4,0);
+			\draw[red] (-4,-1.5) -- (-4,1);
+			\draw[gray] (4,.5) -- (4,-.5);
+			\node[scale=.7,above] at (4,.5) {F\label{Filter}};
+			\draw[red,dashed] (-4,0) -- (-5,0);
+			\draw ({-3.8+cos(45)*.5},{-.2+sin(45)*.5}) -- ({-3.8+cos(225)*.5},{-.2+sin(225)*.5});
+			\node[scale=.7,above] at ({-3.8+cos(45)*.5},{-.2+sin(45)*.5}) {S\label{Versuchsaufbau S}};
+			\draw[red] (-3.6,0) -- (-3.6,-1.5);
+			\draw[red,dashed] (-4,-.4) -- (3,-.4);
+			
+			% Abb. 1a
+			\draw (-3.5,-1.5) -- (-4.1,-1.5) arc (180:360:.6) -- (-3.5,-1.5);
+			\draw (-4.5,-2.1) rectangle (-2.5,-2.3);
+			\draw[<->] (-2.8,-1.6) -- (-2.8,-2.1);
+			
+			% Beschriftung
+			\draw (-2.3,-2.4) -- (-2.1,-2.4) -- (-2.1,-1.3) -- (-2.3,-1.3);
+			\node[scale=.7,right] at (-2.1,-1.95) {Abbildung:
+%				 \ref{Abb: Linsenaufbau}
+			};
+			
+		\end{tikzpicture}
+%		\caption{Versuchsaufbau}
+%		\label{Abb: Aufbau}
+%	\end{figure}
+	\vspace*{3cm}
+	
+%	\begin{minipage}{3cm}
+%		In einer Na-Lampe\index{Lampe}\index{Lampe!Na} beziehungsweise einer Hg-Lampe\index{Lampe}\index{Lampe!Hg}\\ \hyperref[Lampe]{L} wird Licht erzeugt, welches durch ein Filter\index{Filter} \hyperref[Filter]{F} geschickt wird. Hierbei entsteht eine Spektrallinie\index{Spetkrallinie},\\ welche durch ein System \hyperref[Versuchsaufbau S]{S} in den Linsenaufbau\index{Linse}\index{Linsenaufbau}, siehe Abbildung (\ref{Abb: Linsenaufbau}), geschickt wird und dann in das\\ Mikroskop \hyperref[Mikroskop]{M} geschickt wird. Im Mikroskop\index{Mikroskop} befindet sich eine Skala, die man mit Hilfe der Messschraube\index{Messschraube}\\ \hyperref[Messschraube]{Ms} um 0.01mm-Schritten verschieben kann.
+%	\end{minipage}
+	 
+\end{document}
