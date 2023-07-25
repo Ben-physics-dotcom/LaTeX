@@ -1,0 +1,201 @@
+\documentclass{standalone}
+
+\usepackage{imakeidx}
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+%\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{color}
+\usepackage{wasysym}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{physics}
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{titling}% Titel
+%\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+%\usepackage[printonlyused]{acronym}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{amsthm}
+%\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage{abstract}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+%\makeindex[title=Stichwortverzeichnis,options=-s Index-Formatierung.ist,intoc]
+%\addbibresource{Blog-und-Kurse.bib}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{3d}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+
+% tikz library
+\usetikzlibrary{angles, quotes, shapes, decorations.markings, calc, arrows.meta}
+
+
+
+
+\newcommand{\AAA}{\mathbf{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\sq}{^{2}}
+\newcommand{\I}{\infty}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+
+\begin{document}
+
+%\begin{figure}[ht!]
+%	\centering
+	\begin{tikzpicture}[>=stealth]
+		\draw[white] (0,0) rectangle (8,-6); % Delete it, if you use the code
+		\draw (-6,-1) rectangle (6,1);
+		
+		
+		% TA
+		\draw ({cos(60)*2.2+1.4939},{sin(60)*2.2}) -- ({cos(60)*5.2+1.4939},{sin(60)*5.2}) -- ({cos(60)*4.7+2.5061},{sin(60)*4.7}) -- ({cos(60)*1.7+2.5061},{sin(60)*1.7});
+		\node[color=red,scale=.7,right] at  ({cos(60)*3.5+2.4},{sin(60)*3.5-.7}) {TA\label{Bes: Tragarm}};
+		\draw[color=red,thin] ({cos(60)*3.5+2.4},{sin(60)*3.5-.7}) -- ({cos(60)*3+2.2},{sin(60)*3.});
+		
+		% LS
+		\filldraw[fill=gray!30!white,draw=black] ({cos(60)*4+1.9},{sin(60)*4}) -- ({cos(60)*4.15+1.6},{sin(60)*4.15}) -- ({cos(60)*5.8+1.6},{sin(60)*5.8}) -- ({cos(60)*5.4+2.4},{sin(60)*5.4}) -- ({cos(60)*3.75+2.4},{sin(60)*3.75}) -- ({cos(60)*3.9+2.1},{sin(60)*3.9});
+		\node[scale=.7,color=red,right] at ({cos(60)*5+2.4},{sin(60)*4.5}) {LS\label{Bes: Lichtsensor}};
+		\draw[thin,color=red] ({cos(60)*5+2.4},{sin(60)*4.5}) -- ({cos(60)*5+1.85},{sin(60)*4.5});
+		
+		% B
+		\draw[very thick] ({cos(60)*3.9+1.8},{sin(60)*3.9}) -- ({cos(60)*3.7+2.2},{sin(60)*3.7});
+		\node[scale=.7,color=red,right] at ({cos(60)*3.7+2.5},{sin(60)*3.5}) {B\label{Bes: Blende}};
+		\draw[color=red,thin] ({cos(60)*3.7+2.6},{sin(60)*3.5}) -- ({cos(60)*3.7+2.2},{sin(60)*3.7});
+		
+		% T
+		\filldraw[draw=black,fill=gray!30!white] (2,0) circle (2);
+		\foreach \x in {0,10,...,350}
+		\draw ({cos(\x)*1.7+2},{sin(\x)*1.7}) -- ({cos(\x)*2+2},{sin(\x)*2});
+		\foreach \x in {5,15,...,355}
+		\draw ({cos(\x)*1.85+2},{sin(\x)*1.85}) -- ({cos(\x)*2+2},{sin(\x)*2});
+		\node[rotate=10] at ({cos(100)*1.5+2},{sin(100)*1.5}) {0};
+		\draw[thick] ({cos(100)*1.7+2},{sin(100)*1.7}) -- ({cos(100)*2+2},{sin(100)*2});
+		\node[rotate=10] at ({cos(280)*1.5+2},{sin(280)*1.5}) {180};
+		\draw[thick] ({cos(280)*1.7+2},{sin(280)*1.7}) -- ({cos(280)*2+2},{sin(280)*2});
+		\node[rotate=100] at ({cos(10)*1.5+2},{sin(10)*1.5}) {90};
+		\draw[thick] ({cos(10)*1.7+2},{sin(10)*1.7}) -- ({cos(10)*2+2},{sin(10)*2});
+		\node[rotate=-80] at ({cos(190)*1.5+2},{sin(190)*1.5}) {90};
+		\draw[thick] ({cos(190)*1.7+2},{sin(190)*1.7}) -- ({cos(190)*2+2},{sin(190)*2});
+		\node[scale=.7,color=red] at (.3,2.1) {T\label{Bes: Tisch}};
+		\draw[thin,color=red] (.3,2.) -- (1.5,1.3);
+		
+		
+		% Z, R.  
+		\filldraw[fill=gray!50!white,draw=black] (2,0) circle (1);
+		\draw (2,0) -- ({cos(20)*1+2},{sin(20)*1});
+		\draw (2,0) -- ({cos(200)*1+2},{sin(200)*1});
+		\filldraw[draw=black,fill=white] (2,0) -- ({cos(20)*0.75+2},{sin(20)*0.75}) arc (20:-160:0.75) -- cycle;
+		
+		\draw[thin,color=red] (1.3,2.) -- (2.5,.18);
+		\draw[thin,color=red] (3,-2.35) -- (2.4,-.3);
+		\draw[thin,color=red] (2,-3.) -- (2,-2.5);
+		% Beschriftung von Z, R
+		\node[scale=.7,color=red] at (2,-3.2) {S\label{Bes: Strich-Markierung}};
+		\node[scale=.7,color=red] at (3,-2.5) {Z\label{Bes: Zylinderlinse}};
+		\node[scale=.7,color=red] at (1.3,2.1) {R\label{Bes: Reflektor}};
+		
+		% LQ
+		\filldraw[fill=gray!30!white,draw=black] (-5.5,-0.8) rectangle (-4.5,0.8);
+		\filldraw[fill=gray!30!white,draw=gray!30!white] (-4.6,-.05) rectangle (-4.2,0.05);
+		\draw (-4.5,.1) -- (-4.5,0.05) -- (-4.19,0.05);
+		\draw (-4.5,-.1) -- (-4.5,-.05) -- (-4.19,-.05);
+		\draw[color=red,thin] (-5,-1.3) -- (-5,-.5);
+		% Beschriftung von LQ
+		\node[scale=.7,color=red] at (-5,-1.5) {LQ\label{Bes: Lichtquelle}};
+		
+		% Laser
+		\draw[dashed] (-6.3,0) -- (2,0) -- ({cos(60)*5.6+2},{sin(60)*5.6});
+		
+		% Messgerät für Laser	
+		\draw ({cos(60)*5.6+2},{sin(60)*5.6}) -- ({cos(60)*5.9+2},{sin(60)*5.9}) .. controls ({cos(59)*6.6+2},{sin(59)*6.6}) and ({cos(50)*6.6+2},{sin(50.5)*6.6}) .. ({cos(45)*6.2+2},{sin(45)*6.2}) -- (6.5,-3)  arc (180:90:-0.5) -- (-2.5,-3.5);
+		
+		% Kabel
+		\filldraw[fill=black,draw=black] (2,-2.08) -- (2.1, -2.2) -- (2.1,-2.7) -- (1.9, -2.7) -- (1.9,-2.2) -- cycle;
+		
+		% PG
+		\draw (-3.5,-4) rectangle (-2.5,-3);
+		\filldraw[fill=gray!30!white,draw=black] (-3,-3.5) circle (0.4);
+		\filldraw[fill=gray!30!white,draw=black] (-3,-3.5) circle (0.35);
+		
+		% Voltmeter: Keine Lust circuitikz zu verwenden
+		\draw (-5.5,-3.5) circle (0.5);
+		\draw[->] ({cos(225)*0.7-5.5},{sin(225)-3.5}) -- ({cos(45)*0.7-5.5},{sin(45)-3.5});
+		\draw (-3.5,-3.5) -- (-5,-3.5);
+		
+		% PF1/2
+		\filldraw[fill=gray!30!white,draw=black] (-3.5,-.8) rectangle (-3.4,.8);
+		\filldraw[fill=gray!30!white,draw=black] (-2.9,-.8) rectangle (-2.8,.8);
+		\draw[thin,color=red] (-3.45,-1.3) -- (-3.45,-.75);
+		\draw[thin,color=red] (-2.85,-1.8) -- (-2.85,-.75);
+		% Beschriftung von PF1/2
+		\node[scale=.7,color=red] at (-3.45,-1.5) {PF1\label{Bes: Polarisationfilter 1}};
+		\node[scale=.7,color=red] at (-2.85,-2) {PF2\label{Bes: Polarisationfilter 2}};
+		
+		% Polarisationsrichtung
+		\filldraw[draw=black,fill=gray!30!white] (-3.15,3) circle (1);
+		\filldraw[fill=white,draw=black] (-3.15,3) circle (0.5);
+		\draw[<->] ({cos(225)*0.4-3.15},{sin(225)*0.4+3}) -- ({cos(45)*0.4-3.15},{sin(45)*0.4+3});
+		\foreach \x in {0,10,...,350}
+		\draw ({cos(\x)*0.8-3.15},{sin(\x)*0.8+3}) -- ({cos(\x)*1-3.15},{sin(\x)*1+3});
+		\foreach \x in {5,15,...,355}
+		\draw ({cos(\x)*0.9-3.15},{sin(\x)*0.9+3}) -- ({cos(\x)*1-3.15},{sin(\x)*1+3});
+		\foreach \x in {20,110,200,290}
+		\draw[thick] ({cos(\x)*0.8-3.15},{sin(\x)*0.8+3}) -- ({cos(\x)*1-3.15},{sin(\x)*1+3});
+		\node[scale=0.5,rotate=110] at ({cos(20)*0.7-3.15},{sin(20)*0.7+3}) {0};
+		\node[scale=0.5,rotate=200] at ({cos(110)*0.7-3.15},{sin(110)*0.7+3}) {90};
+		\node[scale=0.5,rotate=290] at ({cos(200)*0.7-3.15},{sin(200)*0.7+3}) {180};
+		\node[scale=0.5,rotate=20] at ({cos(290)*0.7-3.15},{sin(290)*0.7+3}) {270};
+		\node[scale=0.7,color=red] at (-.7,2.8) {Polarisationsrichtung\label{Bes: Polarisationsrichtung}};
+		\filldraw[fill=black,draw=black] (-3.15,3) circle (0.025);
+		\draw[very thin,->,color=red] (-2,2.8) -- (-3.10,3);
+		\draw[<->] (-3.25,-3.9) arc (240:300:0.5);
+		
+		% M
+		\filldraw[draw=black,fill=black] (-3.15,1.9) -- (-3.10,1.85) -- (-3.10,1.45) -- (-3.20,1.45) -- (-3.2,1.85) -- cycle;
+		\draw[very thin,<->] (-2.6,2.05) -- (-2.4,1.35) -- (-2.4,0.5) -- (-2.7,0.5);
+		\draw[very thin,<->] (-3.7,2.05) -- (-3.9,1.35) -- (-3.9,0.5) -- (-3.6,0.5);
+		\draw[color=red,->,thin] (-2.8,1.45) -- (-3.1,1.7);
+		% Beschriftung von M
+		\node[scale=.7,color=red] at (-2.8,1.3) {M};
+		
+		% Teile der Beschriftungen
+		\node[color=red,scale=.7] at (-5.5,-4.5) {Voltmeter\label{Bes: Voltmeter/Digi Meter}};
+		\node[color=red,scale=.7] at (-3,-3.5) {VG\label{Bes: Versorgungsgerät}};
+		\node[color=red,scale=.7,left] at (0,-2) {GS\label{Bes: Gradskala}};
+		\draw[thin,color=red] (0,-2) -- (1.05,-1.645448);
+	\end{tikzpicture}
+%	\caption{Versuchsaufbau}
+%	\label{Abb: Versuchsaufbau}
+%\end{figure}
+\end{document}
