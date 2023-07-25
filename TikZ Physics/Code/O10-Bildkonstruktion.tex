@@ -1,0 +1,221 @@
+\documentclass{standalone}
+
+\usepackage{imakeidx}
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+%\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{color}
+\usepackage{wasysym}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{physics}
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{titling}% Titel
+%\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+%\usepackage[printonlyused]{acronym}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{amsthm}
+%\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage{abstract}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+%\makeindex[title=Stichwortverzeichnis,options=-s Index-Formatierung.ist,intoc]
+%\addbibresource{Blog-und-Kurse.bib}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{3d}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+
+% tikz library
+\usetikzlibrary{angles, quotes, shapes, decorations.markings, calc, arrows.meta}
+
+
+
+
+\newcommand{\AAA}{\mathbf{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\sq}{^{2}}
+\newcommand{\I}{\infty}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+
+\begin{document}
+	
+%		\begin{figure}[ht!]
+%		\centering
+		\begin{tikzpicture}[>=stealth]
+			\draw[white] (0,0) -- (0,-6); % Delete it, if you use the code
+			\draw[thick] (-3,0.1) -- (-3,-0.1);
+			\draw[<->] (-3.5,-2) -- (3.5,-2);
+			% Gegenstand
+			\draw[very thick,->] (-3.5,0) -- (-3.5,0.5);
+			% Hauptebenen
+			\draw[very thick] (-2,-1.5) -- (-2,1.5);
+			\draw[very thick] (2,-1.5) -- (2,1.5);
+			% Brennpunkt
+			\draw[thick] (2.5,0.1) -- (2.5,-0.1);
+			% Bild
+			\draw[very thick,->] (3.5,0) -- (3.5,-1);
+			% Linsensystem
+			\filldraw[fill=gray!20!white,draw=gray!80!white] (-0.5,-0.75) rectangle (1.5,1.5);
+			\draw[densely dotted] (-4,0) -- (4,0);
+			\filldraw[fill=black,draw=black] (-0.7,-0.85) rectangle (1.7,-0.75);
+			\draw (1.2,-0.85) -- (1.2,-1.8);
+			\filldraw[fill=black,draw=black] (1.35,-0.85) -- (1.2,-1) -- (1.05,-0.85) -- cycle;
+			\filldraw[draw=black, fill=white] (.75,-0.6) rectangle (0.25,1.25);
+			\draw (0.5,0.3) node[rotate=90,scale=.8] {Linsensystem\label{Linsensystem Abbe}};
+			
+			% Pfeile und Striche
+			\draw[very thin] (-2,1.5) -- (-2,1.7);
+			\draw[very thin] (2,1.5) -- (2,1.7);
+			\draw[thin,<->] (2,1.6) -- (-2,1.6);
+			\draw[thin,<->] (-2,-1.3) -- (1.2,-1.3);
+			\draw[thin,<->] (1.2,-1.3) -- (2,-1.3);
+			\draw[very thin] (3.5,-1) -- (3.5,-1.5);
+			\draw[very thin] (2.5,-0.1) -- (2.5,-0.8);
+			\draw[very thin] (-3.5,0) -- (-3.5,-1.75);
+			\draw[very thin] (-3,-0.1) -- (-3,-0.8);
+			\draw[thin,<->] (-3,-0.8) -- (-2,-0.8);
+			\draw[thin,<->] (-3.5,-1.7) -- (1.2,-1.7);
+			\draw[thin,<->] (-3.5,-1.3) -- (-2,-1.3);
+			\draw[thin,<->] (2,-0.8) -- (2.5,-0.8);
+			\draw[thin,<->] (2,-1.3) -- (3.5,-1.3);
+			%Schirm
+			\draw[thin] (3.5,2) -- (3.5,-2);
+			\node[scale=.7,left] at (3.5,2) {S\label{S Abbe}};
+			
+			% Scharfe Punkte
+			\draw[very thick] (-1.5,.1) -- (-1.5,-.1);
+			\draw[very thick] (3,.1) -- (3,-.1);
+			\node[scale=.7,above] at (-1.5,.1) {$ P_1 $\label{P1 Abbe}};
+			\node[scale=.7,above] at (3,.1) {$ P_2 $\label{P2 Abbe}};
+			
+			% Beschriftung
+			\node[scale=.7,above] at (2,1.7) {H'\label{H' Abbe}};
+			\node[scale=.7,above] at (-2,1.7) {H\label{H Abbe}};
+			\node[scale=.7,above] at (-3.5,0.5) {G\label{G Abbe}};
+			\node[scale=.7,right] at (3.5,-1) {B\label{B Abbe}};
+			\node[scale=.7,above] at (0,1.6) {a\label{a Abbe}};
+			\node[scale=.7,above] at (2.5,0.1) {F'\label{F' Abbe}};
+			\node[scale=.7,above] at (-3,0.1) {F\label{F Abbe}};
+			\node[scale=.7,above] at (-2.5,-0.8) {f\label{f Abbe}};
+			\node[scale=.7,above] at (2.25,-0.8) {f};
+			\node[scale=.7,above] at (-1.15,-1.7) {x\label{x Abbe}};
+			\node[scale=.7,above] at (-2.75,-1.3) {g\label{g Abbe}};
+			\node[scale=.7,above] at (2.75,-1.3) {b\label{b Abbe}};
+			\node[scale=.7,above] at (-.4,-1.3) {c\label{c Abbe}};
+			\node[scale=.7,above] at (1.6,-1.3) {c'\label{c' Abbe}};
+			\node[scale=.7,left] at (1.2,-1.1) {K\label{K,MnA}};
+			\node[scale=.7,above] at (.25,-2) {l\label{l Abbe}};
+		\end{tikzpicture}
+%		\caption[Methode nach Abbe]{Methode nach Abbe\index{Abbe}, \ac{Abb.} 15.4 Skript \cite{UnbekannterAutor.>2010}}
+%	\end{figure}
+%	\begin{figure}[ht!]
+%		\centering
+	\hspace*{3cm}
+		\begin{tikzpicture}[>=stealth]
+			\draw[white] (0,0) rectangle (10,-6); % Delete it, if you use the code
+			% Basislinie, Gitter und Verhältnis
+			\draw[step=1cm,very thin] (-6.3cm,-3.3cm) grid (6.3cm,3.3cm);
+			\draw[red] (-6.3cm,0) -- (6.3cm,0);
+			\node[scale=.7,above right] at (6.3,3.3) {Verhältnis 1cm:4cm};
+			\node[scale=.7,right] at (6.3cm,0) {optische Achse};
+			
+			\draw[thin,<->] (6.15,2) -- (6.15,3);
+			\node[scale=.7,right] at (6.15,2.5) {1cm};
+			
+			\draw[thin,<->] (5,2.85) -- (6,2.85);
+			\node[scale=.7,below] at (5.5,2.85) {1cm};
+			
+			% Linsen
+			\filldraw[draw=black,fill=gray!30!white] (-1.500,2.000) .. controls (-1.8,0) .. (-1.500,-2.000) .. controls (-1.2,0) .. (-1.5,2)-- cycle;
+			
+			\filldraw[draw=black,fill=gray!30!white] ({-1.500+1.475},2.000) .. controls ({-1.8+1.475},0) .. ({-1.500+1.475},-2.000) .. controls ({-1.2+1.475},0) .. ({-1.5+1.475},2) -- cycle;
+			
+			% Brennweite linke Linse
+			\draw[very thick] ({-1.5-2.805},.1) -- ({-1.5-2.805},-.1);
+			\node[scale=.7,above] at  ({-1.5-2.805},.1) {$ F_1 $};
+			\draw[very thick] ({-1.5+2.805},.1) -- ({-1.5+2.805},-.1);
+			\node[scale=.7,above] at  ({-1.5+2.805},.1) {$ F_1' $};
+			
+			% Brennweite rechte Linse
+			\draw[very thick] ({-1.500+1.475-4.8175},.1) -- ({-1.500+1.475-4.8175},-.1);
+			\node[scale=.7,above] at  ({-1.500+1.475-4.8175},.1) {$ F_2' $};
+			\draw[very thick] ({-1.500+1.475+4.8175},.1) -- ({-1.500+1.475+4.8175},-.1);
+			\node[scale=.7,above] at  ({-1.500+1.475+4.8175},.1) {$ F_2 $};
+			
+			% Lichtstrahl
+			\draw[color=blue] (-5.8,1.75) -- (-1.5,1.75) -- ({-1.500+1.475},0.8) ;
+			\draw[dashed,blue] ({-1.500+1.475},0.8) -- ({-1.5+2.805},0) ;
+			\draw[dashed,blue] ({-1.5+2.805},0) -- ({+1.5+2.805},-1.75);
+			\draw[dashed,color=blue] (-1.5,1.75) -- ({-1.500+1.475},1.75);
+			\draw[blue] ({-1.500+1.475},0.8) -- ({-1.5+2.1975},0) -- (2.5,-1.9958);
+			\draw[blue,dashed] ({-1.500+1.475},0.8) -- (-1.5,{1.525899+.8});
+			
+			% F 
+			\draw[very thick] ({-1.5+2.1975},.1) -- ({-1.5+2.1975},-.1);
+			\node[scale=.7,above] at ({-1.5+2.1975},.1) {F};
+			
+			% F'
+			\draw[very thick] ({-1.500+1.475-8.79/4},.1) -- ({-1.500+1.475-8.79/4},-.1);
+			\node[scale=.7,above] at ({-1.500+1.475-8.79/4},.1) {F'};
+			
+			
+			
+			
+			% Lichtstrahl 2
+			\draw[blue] (5.8,-1.75) -- (-0.025,-1.75);
+			\draw[blue,dashed] (-0.025,-1.75) -- (-2,-1.75);
+			\draw[blue] (-0.025,-1.75) -- (-1.5,{-(.36326*3.34)});
+			\draw[blue,dashed] (-1.5,{-(.36326*3.34)}) -- ({-1.500+1.475-4.8175},0);
+			
+			% 
+			\draw[blue] (-1.5,{-(.36326*3.34)}) -- (-4,2.95); 
+			\draw[blue,dashed] (-1.5,{-(.36326*3.34)}) -- (-1,-2.1);
+			
+			% H
+			\draw[green!70!black,thick] (-0.95,2.5) -- (-0.95,-2.5);
+			\node[color=green!70!black,above right,scale=.7] at (-0.95,2.5) {H};
+			
+			% H' 
+			\draw[green!70!black,thick] (-1.19,2.5) -- (-1.19,-2.5);
+			\node[color=green!70!black,above left,scale=.7] at (-1.19,2.5) {H'};
+		\end{tikzpicture}
+%		\caption{Konstruktion der Hauptebenen und der Brennweiten}
+%	\end{figure}
+	
+
+
+	
+
+\end{document}
