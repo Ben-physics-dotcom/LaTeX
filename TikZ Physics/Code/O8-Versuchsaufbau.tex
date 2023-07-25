@@ -1,0 +1,131 @@
+\documentclass{standalone}
+
+\usepackage{imakeidx}
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+%\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{color}
+\usepackage{wasysym}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{physics}
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{titling}% Titel
+%\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+%\usepackage[printonlyused]{acronym}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{amsthm}
+%\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage{abstract}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+%\makeindex[title=Stichwortverzeichnis,options=-s Index-Formatierung.ist,intoc]
+%\addbibresource{Blog-und-Kurse.bib}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{3d}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+
+% tikz library
+\usetikzlibrary{angles, quotes, shapes, decorations.markings, calc, arrows.meta}
+
+
+
+
+\newcommand{\AAA}{\mathbf{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\sq}{^{2}}
+\newcommand{\I}{\infty}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+\begin{document}
+%	\begin{figure}[ht!]
+%		\centering
+		\begin{tikzpicture}[>=stealth]
+			\draw[white] (0,0) rectangle (8,-2);
+			\draw (-7,0) -- (7,0);
+			\draw (-6.0,0) -- (-6.0,1);
+			\draw (-3.5,0) -- (-3.5,1.1);
+			\draw (3,0) -- (3,.5);
+			
+			% Laser
+			\filldraw[fill=white,draw=black] (-7,1) rectangle (-5,1.8);
+			
+			% Lochblende
+			\filldraw[fill=white,draw=black] (-3.5,1.4) circle (.3); 
+			\filldraw[fill=white,draw=black] (-3.5,1.4) circle (.05); 
+			
+			%Pfeil
+			\draw[very thin,<->] (-3.5,1.) -- (2.45,1.);
+			\node[scale=.7,below] at (-.5,1) {d\label{IV,d}};
+			
+			% Fotodetektor
+			\filldraw[fill=white,draw=black] (2.25,.5) rectangle (3.75,.8);
+			\filldraw[fill=white,draw=black] (3.75,.9) rectangle (3.85,.4);
+			\foreach \x in {0,.3,...,1.5}
+			\draw ({2.3+\x},.65) -- ({2.3+\x},.8);
+			\foreach \x in {0,.3,...,1.5}
+			\draw ({2.45+\x},.7) -- ({2.45+\x},.8);
+			\foreach \x in {0,.0375,...,1.425}
+			\draw ({2.3+\x},.75) -- ({2.3+\x},.8);
+			\draw (2.45,.8) -- (2.45,1.1);
+			\draw (2.45,1.4) circle (.3);
+			
+			% Ampere-Meter
+			\draw[thin] ({2.45+cos(315)*.3},{1.4+sin(315)*.3}) -- ({5.4+cos(315)*.3},{1.4+sin(315)*.3});
+			\draw (5.8,1.4) circle (.3);
+			\node[scale=.8] at (5.8,1.4) {A\label{Amperemeter}};
+			
+			% Laserstrahl
+			\draw[red] (-5,1.4) -- (-3.45,1.4);
+			
+			\foreach \r in {.03,.05,.09,.11,.14,.16} 
+			\draw[color=red!60!white] (2.4,1.4) circle (\r);
+			\draw[red] (-3.2,1.4) -- (2.4,1.4);
+			
+			% Beschriftung
+			\node[scale=.7,above] at (-6,1.4) {L\label{IV,L}};
+			\node[scale=.7,below] at (-6,1.4) {$\lambda$\label{IV,lambda}};
+			\node[scale=.7,above] at (-3.5,1.7) {B\label{IV,B}};
+			\node[scale=.7,above] at (2.45,1.7) {F\label{IV,F}};
+			\node[scale=.7,right] at (3.85,.65) {M\label{IV,M}};
+		\end{tikzpicture}
+%		\caption{Versuchsaufbau zur relativen Intensitätsverteilung\index{Intensität}\index{Intensität!Verteilung!relativ}  }
+%		\label{Abb: Versuchsaufbau rel. I.vert.}
+%	\end{figure}
+	
+	
+%	\noindent	Wir haben einen Helium-Neon-Laser\index{Laser}\index{Laser!Helium-Neon} \hyperref[IV,L]{L}, der einen Lichtstrahl
+%	\index{Licht}\index{Licht!Strahl}
+%	mit einer Wellenlänge\index{Wellenlänge} \hyperref[IV,lambda]{$\lambda$} von 633nm emittiert. Die Lochblende\index{Blende}\index{Blende!Loch-} \hyperref[IV,B]{B} erzeugt ein Ringmuster\index{Ring}\index{Ring!Muster} auf die Fotodiode\index{Fotodiode} \hyperref[IV,F]{F}, welche als Detektor\index{Detektor} dient. Die Fotodiode erzeugt vom Laserstrahl\index{Laser!Strahlt} mittels photoelektrischen Effekt\index{photoelektrischer Effekt} einen Strom\index{Strom}, der mit Hilfe eines Amperemeters\index{Amperemeter} \hyperref[Amperemeter]{A} gemessen werden kann. Um die relative Intensitätsverteilung\index{Intensität}\index{Intensität!Verteilung}\index{Intensität!Verteilung!relativ} zu messen, kann der Detektor\index{Detektor} um ein hundertstel Millimeter mittels einer Millimeter-Schiene\index{Millimeter-Schiene} \hyperref[IV,M]{M} verschoben werden und somit die relative Intensität\index{Intensität} der Ringe\index{Ring} gemessen werden.
+\end{document}
