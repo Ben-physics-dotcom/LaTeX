@@ -1,0 +1,172 @@
+\documentclass[bibliography=totocnumbered]{scrarticle}
+
+\usepackage{imakeidx}
+\usepackage{ragged2e}
+\usepackage{setspace} % Um den Zeilenabstand zu ändern.
+\usepackage{gensymb}
+\usepackage{authblk}
+
+\usepackage{wasysym}
+%\usepackage{SI}
+\usepackage{array} % Verwendung von Matrizen
+\usepackage{booktabs} % Schöne Tabellen beziehungsweise sie sehen damit professioneller aus.
+\usepackage{tabulary} % Ähnlich wie tabularx, ermöglicht aber das ändern der Ausrichtung der Spalten.
+\usepackage{tabularx} % Tabellen mit automatischen Zeilenumbruch.
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage[T1]{fontenc}% fontec und inputenc ermöglichen
+\usepackage{graphicx}%Für Grafiken
+\usepackage{rotating} % lässt Grafiken rotieren
+\usepackage{mathtools}% mathematische Werkzeuge
+\usepackage{amsmath}% Mathetools
+\usepackage{amsfonts}% Mathetools
+\usepackage{amssymb}% Symbole wie Natürliche Zahlen
+\usepackage{geometry}
+%\usepackage{bibtex} 
+\usepackage{tablefootnote}% Fußnoten in Tabellen
+\usepackage{float}% für eingebundene Bilder
+\usepackage{fancyhdr} % Seiten schöner gestalten, insbesondere Kopf- und Fußzeile
+\usepackage{ulem} 
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[ngerman]{babel} % Worttrennung nach der neuen Rechtschreibung und deutsche Bezeichnungen. babelfunktion wird wegen Literatur gebraucht.
+\usepackage{subfloat} % Was macht diese Packet?
+\usepackage{caption} % Unter-/Überschriften für Bilder, Grafiken und Tabellen
+\usepackage{subcaption}
+\usepackage{txfonts}
+\usepackage{titling}% Titel
+\usepackage[style=alphabetic,firstinits=true]{biblatex} %biblatex mit alphabetic laden. alphbetic=Zitationsstil
+\usepackage{bookmark}
+\usepackage[printonlyused]{acronym}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage[siunitx,americanvoltages, europeanresistors,americancurrents]{circuitikz}
+\usepackage{listings}
+\usepackage{abstract}
+\usepackage[per-mode = fraction]{siunitx}
+\usepackage{hyperref} % In die ersten Klammern kommt der Link, in die zweite Klammer der Titel/Angaben zum Link.
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor=lime!50!black,
+	filecolor=red
+}
+%\addbibresource{} %Bibliographiedateien laden
+\addbibresource{PhysikBib.bib}
+
+\geometry{a4paper, left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\date{\today}
+%\lhead{\thedate}
+\rhead{FPR}
+\pagestyle{fancy}
+\lfoot{HU}
+
+% Neue Befehle
+\newcommand{\R}{\mathbb{R}} % reelle Zahlen
+\newcommand{\N}{\mathbb{N}} % natürliche Zahlen
+\newcommand{\C}{\mathbb{C}} % komplexe Zahlen
+\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
+\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
+\newcommand{\F}{\mathbf{F}} % Kraft
+\newcommand{\E}{\mathbf{E}} % Energie
+\newcommand{\V}{\mathbf{v}} % Geschwindigkeit
+\newcommand{\B}{\mathbf{B}} % magnetischer Fluss
+\newcommand{\J}{\mathbf{j}} % Stromdichte ?
+\newcommand{\D}{\mathbf{D}} % elektrische Induktion
+\newcommand{\HH}{\mathbf{H}} % magnetische Feldstärke
+\newcommand{\M}{\mathbf{M}} % Magnetisierung
+\newcommand{\p}{\mathbf{P}}
+\newcommand{\rr}{\mathbf{r}}
+\newcommand{\vp}{\varphi}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vcc}[1]{\left(\begin{matrix}#1\end{matrix}  \right)}
+\newcommand{\m}[1]{\left\lbrace #1\right\rbrace}
+\newcommand{\los}{\noindent\textbf{Lösung}:}
+\newcommand{\rang}[2]{\text{Rang}(#1)=#2}
+\newcommand{\vpe}{\frac{1}{4\pi\ve_0}}
+\newcommand{\qvpe}{\frac{q}{4\pi\ve_0}}
+\newcommand{\geg}{\ac{geg.}}
+\newcommand{\ges}{\ac{ges.}}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{3d}
+
+% Title and authors
+\title{\textbf{Template}}
+
+
+\author{Author 1, Author 2\\
+\affiliation{
+    subject Students\\
+    % subject Student\\
+	Department of subject\\
+    % subject Institut
+	Name of University\\
+    % Name der Universität\\
+	Street with number\\
+   % i.e. for germany: 13433 Berlin, Deutschland\\
+    E-Mail (1): mail@adress\\
+    E-Mail (2): mail@adress
+    }
+}
+
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+        Der Abstract ist das Schaufenster jeder Publikation und ist ausserordntlich wichtig für seine Wahrnehmung (Der Abstract ist immer kostenfrei zugänglich.). Ohne viel Schnörkel soll der wesentliche Inhalt, Ziel , wesentliche Methoden und wesentliche Ergebnisse zusammengefasst werden. Ihr Abstract sollte nicht mehr, als 100 Worte umfassen.
+\end{abstract}
+
+\begin{multicols}{2}
+\section*{Abkürzungsverzeichnis}
+	\label{sec:abkuerzungsverzeichnis}
+	
+	\begin{acronym}[Variation]
+		\acro{DGL}{Differentialgleichung}
+		\acro{AWP}{Anfangswertproblem}
+		\acro{AWP}{Anfangswertproblem}
+		\acro{Fund.s.}{Fundamentalsystem}
+		\acro{Variation}{Variation der Konstanten}
+		\acro{z.B.}{zum Beispiel}
+		\acro{konst.}{konstant}
+		\acro{geg.}{gegeben}
+		\acro{ges.}{gesucht}
+		\acro{allg.}{allgemein}
+		\acro{Skript}{Vorlesungsskript}
+		\acro{Glg}{Gleichung}
+		\acro{EW}{Eigenwert(-e)}
+		\acro{EV}{Eigenvektor(-en)}
+		\acro{Nst}{Nullstelle(-n)}
+		\acro{vgl.}{vergleiche}
+		\acro{bzw.}{beziehungsweise}
+		\acro{d.h.}{dass heißt}
+		\acro{Abb.}{Abbildung}
+		\acro{CU}{Cauchy-Ungleichung}
+		\acro{VONS}{vollständiges, orthonormiertes System}
+		\acro{z.z.}{zu zeigen}
+	\end{acronym}
+	\section{Einleitung}
+ Die Einleitung kann sehr kurz gehalten werden. Bei einer Publikation dient Sie der Einordnung der geleisteten Arbeit in die Forschungslandchaft und der Vorbereitung des fachfremden Lesers auf die Materie. Bei Ihrem Betreuer kann man davon ausgehen, dass er das nicht braucht.
+
+    
+    \section{Materialien und Methoden}
+ In Materialien und Methoden werden die Versuchsaufbauten beschrieben, die verwendeten Geräte bzw. experimentellen Anlagen mit Typenbezeichnung und auch besondere Verfahren zur Datenauswertung / Software, falls notwendig. Erneut gilt: so kurz wie möglich, aber der qualifizierte Leser sollte Ihre Beschreibung nachvollziehen können. Oft sind Skizzen sinnvoll.
+    \section{Auswertung und Diskussion}
+
+     In Auswertung und Diskussion (in aufwendigeren Publikationen oft auch separat) werden die Ergebnisse vorgestellt und analysiert, mit denen in anderen Arbeiten vergleichend diskutiert und natürlich die Genauigkeit der Ergebnisse beurteilt. Ein Ergebnis ohne Fehlerangabe ist keines und auch in einer Grafik sollte immer die Genauigkeit der Ergebnisse erkennbar sein (ggf. Fehlerkreuze etc. ). In diese Sektion gehören die Erkenntnisgewinne und Konsequenzen daraus. 
+
+     \section{Schlussfolgerungen}
+    Die Schlussfolgerungen werden am Ende zusammengefasst...mal wieder kurz, aber der gut vorgebildete Leser sollte mit Abstract und Schlussfolgerungen ein grobes Bild Ihrer Arbeit und deren Ergebnisse erhalten.
+ 
+	\newpage
+	\appendix
+	\printbibliography[title=Quellenverzeichnis]
+	
+\end{multicols}
+\end{document}
